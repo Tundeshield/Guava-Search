@@ -1,7 +1,6 @@
-require('dotenv').config()
 import Head from "next/head";
 import Header from "../components/Header";
-import { API_KEY, CONTEXT_KEY } from "../.env";
+import { API_KEY, CONTEXT_KEY } from "../keys.js";
 import Response from "../Response";
 import { useRouter } from "next/router";
 import SearchResults from "../components/SearchResults";
@@ -31,7 +30,7 @@ export async function getServerSideProps(context) {
 	const data = useDummyData
 		? Response
 		: await fetch(
-				`https://www.googleapis.com/customsearch/v1?key=${process.env.REACT_APP_API_KEY}&cx=${process.env.REACT_APP_CONTEXT_KEY}&q=${context.query.term}&start=${startIndex}`
+				`https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${CONTEXT_KEY}&q=${context.query.term}&start=${startIndex}`
 		  ).then((response) => response.json());
 
 	//Pass the results to the client
