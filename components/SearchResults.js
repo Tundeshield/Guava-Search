@@ -1,3 +1,5 @@
+import PaginationButtons from "./PaginationButtons";
+
 function SearchResults({ results }) {
 	return (
 		<div className="mx-auto w-full px-3 sm:pl-[14%] lg:pl-60">
